@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
+import reset from 'styled-reset'
 
-const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
+  ${reset}
   * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
   }
   html {
@@ -13,7 +13,11 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
   }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.4rem;
+  }
+  h1 {
+    font-size: 2.4rem;
   }
 `
 

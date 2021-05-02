@@ -1,23 +1,30 @@
 import { AppProps } from 'next/app'
+import { ThemeProvider } from 'styled-components'
 import Head from 'next/head'
 
-import GlobalStyles from 'styles/global'
+import { Theme, GlobalStyles } from 'styles'
+
+import { Layout } from 'components/Layout'
 
 function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <title>bstage - boilerplate </title>
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="shortcut icon" href="/img/icon-512.png" />
-        <link rel="apple-touch-icon" href="/img/icon-512.png" />
-        <meta
-          name="description"
-          content="A simple project starter to work with TypeScript, React, NextJS and Styled Components"
-        />
-      </Head>
-      <GlobalStyles />
-      <Component {...pageProps} />
+      <ThemeProvider theme={Theme}>
+        <Head>
+          <title>Grupo ZAP - Real Estate</title>
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="shortcut icon" href="/img/icon-512.png" />
+          <link rel="apple-touch-icon" href="/img/icon-512.png" />
+          <meta
+            name="description"
+            content="Grupo ZAP - Real Estate. Search a property for you!"
+          />
+        </Head>
+        <GlobalStyles />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
     </>
   )
 }
