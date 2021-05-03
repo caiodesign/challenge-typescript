@@ -5,7 +5,11 @@ export default {
   title: 'Card',
   component: Card,
   args: {
-    children: 'Card is awesome!!!'
+    image:
+      'http://grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/images/pic7.jpg',
+    title: 'Itaim Bibi (Alugel)',
+    rent: true,
+    price: 7476
   }
 } as Meta
 

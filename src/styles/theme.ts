@@ -3,30 +3,21 @@ export const Theme = {
     default: '#101439',
     green: '#02c488',
     blue: '#2B327D',
-    gray: '#f3f3f5',
+    gray: '#8d93a1',
+    athensGray: '#f3f3f5',
     white: '#fff'
   },
   space: {
     container: '5rem'
-  }
-}
-
-export type Color = {
-  default: string
-  green: string
-  blue: string
-  gray: string
-  white: string
-}
-
-export type Space = {
-  container: string
-}
-
-export type ThemeType = {
-  theme: {
-    color: Color
-    space: Space
+  },
+  weight: {
+    light: 300,
+    regular: 400,
+    medium: 500,
+    bold: 700
+  },
+  shadow: {
+    default: 'rgb(0 0 0 / 16%) 0px 2px 8px 0px'
   }
 }
 

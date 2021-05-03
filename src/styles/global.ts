@@ -3,6 +3,7 @@ import reset from 'styled-reset'
 
 export const GlobalStyles = createGlobalStyle`
   ${reset}
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
   * {
     box-sizing: border-box;
   }
@@ -13,7 +14,7 @@ export const GlobalStyles = createGlobalStyle`
     height: 100%;
   }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 1.4rem;
   }
   h1 {
