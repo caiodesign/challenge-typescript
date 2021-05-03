@@ -17,7 +17,7 @@ export const Theme = {
     bold: 700
   },
   shadow: {
-    default: 'rgb(0 0 0 / 16%) 0px 2px 8px 0px'
+    default: 'rgb(0 0 0 / 8%) 0px 1px 4px 0px'
   }
 }
 
