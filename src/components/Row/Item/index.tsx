@@ -11,11 +11,11 @@ export const Item = ({ name, value }: ItemProps) => {
 
   return (
     <S.Item>
-      <S.Text color="blue" data-testid="row-item-name">
-        {name}
-      </S.Text>
-      <S.Text color="gray" data-testid="row-item-value">
+      <S.Text color="blue" data-testid="row-item-value">
         {value}
+      </S.Text>
+      <S.Text color="gray" data-testid="row-item-name">
+        {name}
       </S.Text>
     </S.Item>
   )

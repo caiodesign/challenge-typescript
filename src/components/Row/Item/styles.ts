@@ -1,12 +1,14 @@
 import styled, { css } from 'styled-components'
 
 export const Item = styled.div`
-  width: 100%;
-  max-width: 32rem;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: ${({ theme }) => theme.shadow.default};
-  cursor: pointer;
+  display: inline-flex;
+  margin-right: 1rem;
+
+  * {
+    &:not(:first-child) {
+      margin-left: 0.4rem;
+    }
+  }
 `
 
 export const Text = styled.p`

@@ -1,5 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import Component from '.'
+import { Container } from '../Container'
 
 export default {
   title: 'Row/Item',
@@ -10,4 +11,10 @@ export default {
   }
 } as Meta
 
-export const Item: Story = (args) => <Component {...args} />
+export const Item: Story = (args) => (
+  <Container>
+    <Component {...args} />
+    <Component {...args} />
+    <Component {...args} />
+  </Container>
+)
