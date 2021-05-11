@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import Hero, { HeroProps } from '.'
 import Header from 'components/Header'
+import Title from 'components/Title'
 
 export default {
   title: 'Hero',
@@ -14,6 +15,6 @@ export default {
 
 export const Basic: Story<HeroProps> = (args) => (
   <Hero {...args}>
-    <h1>Hero is awesome!</h1>
+    <Title>Hero is awesome!</Title>
   </Hero>
 )

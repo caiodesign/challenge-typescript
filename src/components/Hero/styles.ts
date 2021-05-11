@@ -41,4 +41,5 @@ export const Wrapper = styled.div`
   text-align: center;
   height: 100%;
   justify-content: center;
+  font-size: 3rem;
 `

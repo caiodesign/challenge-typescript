@@ -27,7 +27,9 @@ describe('<Card />', () => {
   it('should render the price', () => {
     RenderComponent()
 
-    expect(screen.getByTestId('card-price')).toHaveTextContent('R$ 7.476,00')
+    expect(screen.getByTestId('card-price')).toHaveTextContent(
+      'R$7,476.00/month'
+    )
   })
 
   it('should render the word "month" case rent', () => {

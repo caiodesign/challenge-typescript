@@ -3,7 +3,7 @@ import * as S from './styles'
 export type HeroProps = {
   children: JSX.Element
   Header: React.FC
-  bg: string
+  bg?: string
 }
 
 export const Hero: React.FC<HeroProps> = ({ children, Header, bg }) => {
