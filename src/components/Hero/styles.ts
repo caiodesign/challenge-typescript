@@ -9,14 +9,29 @@ export const Container = styled.div<Props>`
   background-size: cover;
   background-image: ${({ bg }) => `url(${bg})`};
   height: 90vh;
-  display: flex;
-  flex-direction: column;
+
+  &::before {
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+  }
 
   ${({ theme }) => css`
     @media (min-width: ${theme.media.mobile}) {
       height: 40rem;
     }
   `}
+`
+
+export const Layer = styled.div`
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
 `
 
 export const Wrapper = styled.div`
