@@ -11,7 +11,7 @@ const props = {
 
 const RenderComponent = () => renderWithTheme(<Item {...props} />)
 
-describe('<Main />', () => {
+describe('<Row.Item />', () => {
   it('should render the Item name', () => {
     RenderComponent()
     expect(

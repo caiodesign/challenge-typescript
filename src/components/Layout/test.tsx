@@ -7,7 +7,7 @@ import Layout from '.'
 const RenderComponent = () =>
   renderWithTheme(<Layout>Layout is awesome</Layout>)
 
-describe('<Main />', () => {
+describe('<Layout />', () => {
   it('should render the children component', () => {
     RenderComponent()
 

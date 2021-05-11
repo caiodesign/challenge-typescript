@@ -10,7 +10,7 @@ const props = {
 
 const RenderComponent = () => renderWithTheme(<Container {...props} />)
 
-describe('<Main />', () => {
+describe('<Row.Container />', () => {
   it('should render the children', () => {
     RenderComponent()
 

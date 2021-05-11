@@ -18,6 +18,10 @@ export const Theme = {
   },
   shadow: {
     default: 'rgb(0 0 0 / 8%) 0px 1px 4px 0px'
+  },
+  media: {
+    mobile: '768px',
+    desktop: '1200px'
   }
 }
 

@@ -15,7 +15,7 @@ const props = {
 const RenderComponent = () =>
   renderWithTheme(<Card {...props}>Card is awesome</Card>)
 
-describe('<Main />', () => {
+describe('<Card />', () => {
   it('should render the title', () => {
     RenderComponent()
 
