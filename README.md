@@ -16,6 +16,10 @@
 You will need to use the [zap-challenge-back-end](https://github.com/caiodesign/eng-zap-challenge-back-end) version to start this project on develop mode. Visit the link for more information about how to install and run it.
 
 ## Getting Started
+node version: `v14.16.0`
+
+see `.nvmrc`
+
 Install the dependencies:
 ```bash
 $ npm install
