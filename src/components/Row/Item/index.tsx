@@ -3,16 +3,16 @@ import * as S from './styles'
 
 export type ItemProps = {
   name?: string
-  value?: string | number
+  children?: string | number
 }
 
-export const Item = ({ name, value }: ItemProps) => {
-  if (!name || !value) return null
+export const Item = ({ name, children }: ItemProps) => {
+  if (!name || !children) return null
 
   return (
     <S.Item>
       <S.Text color="blue" data-testid="row-item-value">
-        {value}
+        {children}
       </S.Text>
       <S.Text color="gray" data-testid="row-item-name">
         {name}

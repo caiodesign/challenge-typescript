@@ -1,29 +1,61 @@
 import React from 'react'
 import * as S from './styles'
+import Row from 'components/Row'
 
 import { toBRL } from 'utils/currency'
 
 export type CardProps = {
-  title?: string
-  image?: string
-  price?: string
-  rent?: boolean
-  children?: React.ReactNode
+  images: string[]
+  address: {
+    city: string
+    neighborhood: string
+  }
+  pricingInfos: {
+    price: string
+    businessType: string
+    monthlyCondoFee?: string
+    rentalTotalPrice?: string
+  }
+  bathrooms: number
+  bedrooms: number
 }
 
-export const Card = ({ title, price, image, rent, children }: CardProps) => {
+export const Card = ({
+  address,
+  pricingInfos,
+  images,
+  bathrooms,
+  bedrooms
+}: CardProps) => {
+  const { rentalTotalPrice, price } = pricingInfos
+  const { city, neighborhood } = address
+
+  const image = (images.length && images[0]) || ''
+
+  function isRental() {
+    return pricingInfos.businessType === 'RENTAL'
+  }
+
   return (
-    <S.Card>
+    <S.Card business={pricingInfos.businessType}>
       <S.Image image={image} data-testid="card-image" />
       <S.Wrapper>
         <S.Header>
-          <S.Title color="blue">{title}</S.Title>
+          <S.Title
+            color="blue"
+            overflowHidden
+          >{`${city} - ${neighborhood}`}</S.Title>
           <S.Title color="green" data-testid="card-price">
-            {toBRL(price || 0)}
-            {Boolean(rent) && <S.Type>/month</S.Type>}
+            {toBRL(rentalTotalPrice || price)}
+            {isRental() && <S.Type>/month</S.Type>}
           </S.Title>
         </S.Header>
-        <S.Description>{children}</S.Description>
+        <S.Description>
+          <Row.Container>
+            <Row.Item name="bathrooms">{bathrooms}</Row.Item>
+            <Row.Item name="bedrooms">{bedrooms}</Row.Item>
+          </Row.Container>
+        </S.Description>
       </S.Wrapper>
     </S.Card>
   )

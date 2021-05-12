@@ -8,6 +8,7 @@ export const Container = styled.div<Props>`
   position: relative;
   background-size: cover;
   background-image: ${({ bg }) => `url(${bg})`};
+  background-position: center;
   height: 90vh;
 
   &::before {

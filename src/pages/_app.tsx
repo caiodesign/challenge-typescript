@@ -1,10 +1,9 @@
 import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 import Head from 'next/head'
+import { PortalsProvider } from 'context/portals'
 
 import { Theme, GlobalStyles } from 'styles'
-
-import { Layout } from 'components/Layout'
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -21,9 +20,9 @@ function App({ Component, pageProps }: AppProps) {
           />
         </Head>
         <GlobalStyles />
-        <Layout>
+        <PortalsProvider>
           <Component {...pageProps} />
-        </Layout>
+        </PortalsProvider>
       </ThemeProvider>
     </>
   )
