@@ -67,6 +67,14 @@ $ npm run build-storybook
 $ yarn build-storybook
 ```
 
+## Tests
+Run all tests using:
+
+```bash
+$ npm run test
+# or
+$ yarn test
+```
 
 ## Learn More
 
