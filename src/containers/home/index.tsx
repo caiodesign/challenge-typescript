@@ -22,7 +22,8 @@ export function Home() {
     currentActivePortal,
     getPortalDataFrom,
     isLoading,
-    fetchPortalInitialData
+    fetchPortalInitialData,
+    propertyApiError
   } = usePortals()
 
   function handleClick(id: string) {
@@ -42,6 +43,9 @@ export function Home() {
   React.useEffect(() => {
     fetchPortalInitialData()
   }, [currentActivePortal])
+
+  if (propertyApiError)
+    return <h1>algo inesperado ocorreu... tente novamente mais tarde.</h1>
 
   return (
     <>
