@@ -4,9 +4,10 @@ import { StyledPaginateContainer } from './styles'
 interface Props {
   total: number
   onClick: (selected: number) => void
+  forcePage: number
 }
 
-export const Paginate = ({ total, onClick }: Props) => {
+export const Paginate = ({ total, onClick, forcePage }: Props) => {
   return (
     <StyledPaginateContainer>
       <ReactPaginate
@@ -17,6 +18,7 @@ export const Paginate = ({ total, onClick }: Props) => {
         pageRangeDisplayed={2}
         marginPagesDisplayed={1}
         pageClassName="page-number"
+        forcePage={forcePage}
       />
     </StyledPaginateContainer>
   )

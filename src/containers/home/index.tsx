@@ -1,3 +1,6 @@
+import { useRouter } from 'next/router'
+import { useEffectOnce } from 'react-use'
+
 import Card from 'components/Card'
 import Header from 'components/Header'
 import Hero from 'components/Hero'
@@ -9,25 +12,36 @@ import Paginate from 'components/Paginate'
 import Loader from 'components/Loader'
 
 import * as S from './styles'
+import React from 'react'
 
 export function Home() {
+  const router = useRouter()
   const {
     portalsState,
     changePortal,
     currentActivePortal,
-    getDataFrom,
-    isLoading
+    getPortalDataFrom,
+    isLoading,
+    fetchPortalInitialData
   } = usePortals()
 
+  function handleClick(id: string) {
+    router.push(`/property/${id}`)
+  }
+
   function renderPortalCards() {
-    return portalsState[currentActivePortal].data.map((property) => (
-      <Card {...property} />
+    return portalsState[currentActivePortal].data.map((property, index) => (
+      <Card {...property} onClick={handleClick} key={index} />
     ))
   }
 
   async function changePageFromActivePortal(page: number) {
-    getDataFrom(currentActivePortal, page)
+    getPortalDataFrom(currentActivePortal, page)
   }
+
+  React.useEffect(() => {
+    fetchPortalInitialData()
+  }, [currentActivePortal])
 
   return (
     <>
@@ -45,6 +59,9 @@ export function Home() {
         <Paginate
           total={portalsState[currentActivePortal].pagination.total_pages}
           onClick={changePageFromActivePortal}
+          forcePage={
+            portalsState[currentActivePortal].pagination.current_page - 1
+          }
         />
       </Layout>
     </>

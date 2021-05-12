@@ -1,7 +1,7 @@
 import { createContext, useState, useContext, useEffect } from 'react'
 import portals from './portals'
-import { getPropertyFromId } from 'api'
-import { IPortalsProvider, IPortals } from './interface'
+import { getPortalData, getPropertyData } from 'api'
+import { IPortalsProvider, IPortals, IPortal } from './interface'
 
 const initialState = portals.reduce((acc, portal) => {
   return (acc = {
@@ -24,16 +24,17 @@ export const PortalsProvider: React.FC = ({ children }) => {
   const [propertyApiError, setPropertyApiError] = useState(false)
   const [currentActivePortal, setCurrentActivePortal] = useState(portals[0])
   const [isLoading, setIsLoading] = useState(false)
+  const [propertyState, setPropertyState] = useState<any>({})
 
   function changePortal(id: string) {
     setCurrentActivePortal(id)
   }
 
-  async function getDataFrom(id: string, page?: number) {
+  async function getPortalDataFrom(id: string, page?: number) {
     setIsLoading(true)
     setPropertyApiError(false)
     try {
-      const { data } = await getPropertyFromId(id, page)
+      const { data } = await getPortalData(id, page)
 
       setPortalsState((state) => ({
         ...state,
@@ -49,11 +50,26 @@ export const PortalsProvider: React.FC = ({ children }) => {
     }
   }
 
-  useEffect(() => {
+  async function getPropertyDataFrom(id: string) {
+    setIsLoading(true)
+    setPropertyApiError(false)
+
+    try {
+      const { data } = await getPropertyData(id)
+
+      setPropertyState(data)
+    } catch (err) {
+      setPropertyApiError(true)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  function fetchPortalInitialData() {
     const currentPortal = portalsState[currentActivePortal]
 
-    if (!currentPortal.data.length) getDataFrom(currentPortal.id, 1)
-  }, [portalsState, currentActivePortal])
+    if (!currentPortal.data.length) getPortalDataFrom(currentPortal.id, 1)
+  }
 
   return (
     <PortalsContext.Provider
@@ -62,9 +78,13 @@ export const PortalsProvider: React.FC = ({ children }) => {
         setPortalsState,
         currentActivePortal,
         changePortal,
-        getDataFrom,
+        getPortalDataFrom,
         propertyApiError,
-        isLoading
+        isLoading,
+        fetchPortalInitialData,
+        setPropertyState,
+        propertyState,
+        getPropertyDataFrom
       }}
     >
       {children}

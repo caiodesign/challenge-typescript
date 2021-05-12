@@ -1,9 +1,17 @@
 import * as S from './styles'
 
-export const Header: React.FC = ({ children }) => {
+export type Props = {
+  blackTheme?: boolean
+  onClick?: () => void
+}
+
+export const Header: React.FC<Props> = ({
+  blackTheme,
+  onClick = () => null
+}) => {
   return (
-    <S.Container>
-      <S.Logo src="/img/grupo-zap-logo.png" />
+    <S.Container blackTheme={blackTheme}>
+      <S.Logo src="/img/grupo-zap-logo.png" onClick={onClick} />
     </S.Container>
   )
 }

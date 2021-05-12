@@ -20,7 +20,11 @@ export interface IPortalsProvider {
   setPortalsState: SetStateAction<any>
   currentActivePortal: string
   changePortal: SetStateAction<any>
-  getDataFrom: SetStateAction<any>
+  getPortalDataFrom: SetStateAction<any>
   propertyApiError: boolean
   isLoading: boolean
+  fetchPortalInitialData: SetStateAction<any>
+  propertyState: any
+  setPropertyState: SetStateAction<any>
+  getPropertyDataFrom: SetStateAction<any>
 }

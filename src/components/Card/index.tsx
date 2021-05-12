@@ -5,6 +5,7 @@ import Row from 'components/Row'
 import { toBRL } from 'utils/currency'
 
 export type CardProps = {
+  id: string
   images: string[]
   address: {
     city: string
@@ -18,14 +19,17 @@ export type CardProps = {
   }
   bathrooms: number
   bedrooms: number
+  onClick: (id: string) => void
 }
 
 export const Card = ({
+  id,
   address,
   pricingInfos,
   images,
   bathrooms,
-  bedrooms
+  bedrooms,
+  onClick
 }: CardProps) => {
   const { rentalTotalPrice, price } = pricingInfos
   const { city, neighborhood } = address
@@ -37,7 +41,7 @@ export const Card = ({
   }
 
   return (
-    <S.Card business={pricingInfos.businessType}>
+    <S.Card business={pricingInfos.businessType} onClick={() => onClick(id)}>
       <S.Image image={image} data-testid="card-image" />
       <S.Wrapper>
         <S.Header>
