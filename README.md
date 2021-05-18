@@ -1,4 +1,4 @@
-# zap-challenge-front-end
+# challenge-front-end
 
 ## What's included
 - TypeScript
@@ -13,7 +13,7 @@
 - next-pwa
 
 ## Before continue (BACK-END)
-You will need to use the [zap-challenge-back-end](https://github.com/caiodesign/eng-zap-challenge-back-end) version to start this project on develop mode. Visit the link for more information about how to install and run it.
+You will need to use the [challenge-back-end](https://github.com/caiodesign/challenge-back-end) version to start this project on develop mode. Visit the link for more information about how to install and run it.
 
 ## Getting Started
 node version: `v14.16.0`
